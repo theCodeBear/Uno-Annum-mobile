@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic'])
+angular.module('unoAnnum', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -31,11 +31,23 @@ angular.module('starter', ['ionic'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+  .state('splashpage', {
+    url: '/',
+    templateUrl: 'states/splashpage/splashpage.html',
+    controller: 'SplashpageCtrl'
+  })
+
+  .state('login', {
+    url: '/login',
+    templateUrl: 'states/login/login.html',
+    controller: 'LoginCtrl'
+  })
+
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'states/tabs/tabs.html'
+    templateUrl: 'states/tabs.html'
   })
 
   // Each tab has its own nav history stack:
@@ -44,39 +56,58 @@ angular.module('starter', ['ionic'])
     url: '/followingFeed',
     views: {
       'tab-following': {
-        templateUrl: 'states/tabs/tab-following.html'//,
-        // controller: 'TabFollowingCtrl'
+        templateUrl: 'states/feed/feedFollowing.html'//,
+        // controller: 'FollowingFeedCtrl'
       }
     }
   })
 
   .state('tab.popularFeed', {
-      url: '/popularFeed',
-      views: {
-        'tab-popular': {
-          templateUrl: 'states/tabs/tab-popular.html'//,
-          // controller: 'PopularFeedCtrl'
-        }
+    url: '/popularFeed',
+    views: {
+      'tab-popular': {
+        templateUrl: 'states/feed/feedPopular.html'//,
+        // controller: 'PopularFeedCtrl'
       }
-    })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
-      views: {
-        'tab-chats': {
-          templateUrl: 'states/tabs/chat-detail.html'//,
-          // controller: 'ChatDetailCtrl'
-        }
+    }
+  })
+
+  .state('tab.chat-detail', {
+    url: '/chats/:chatId',
+    views: {
+      'tab-chats': {
+        templateUrl: 'states/feed/chat-detail.html'//,
+        // controller: 'ChatDetailCtrl'
       }
-    })
+    }
+  })
 
   .state('tab.favoritesFeed', {
     url: '/favoritesFeed',
     views: {
       'tab-favorites': {
-        templateUrl: 'states/tabs/tab-favorites.html'//,
+        templateUrl: 'states/feed/feedFavorites.html'//,
         // controller: 'FavoritesFeedCtrl'
       }
     }
+  })
+
+  .state('tab.picture', {
+    url: '/picture/:pictureId',
+    templateUrl: 'states/picture/picture.html',
+    controller: 'PictureCtrl'
+  })
+
+  .state('tab.profile', {
+    url: '/profile/:userId',
+    templateUrl: 'states/profile/profile.html',
+    controller: 'ProfileCtrl'
+  })
+
+  .state('tab.transformation', {
+    url: '/transformation/:transformationId',
+    templateUrl: 'states/transformation/transformation.html',
+    controller: 'TransformationCtrl'
   });
 
   // if none of the above states are matched, use this as the fallback

@@ -15,7 +15,8 @@ var gulp = require('gulp'),
 var paths = {
   sass: ['./src/scss/**/*.scss'],
   js: ['./src/**/*.js'],
-  html: ['./src/**/**.html']
+  html: ['./src/**/**.html'],
+  all: ['./src/scss/**/*.scss', './src/**/*.js', './src/**/**.html']
 };
 
 gulp.task('default', ['inject']);
@@ -77,6 +78,7 @@ gulp.task('watch', ['inject'], function() {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch(paths.js, ['jshint']);
   gulp.watch(paths.html, ['copyHtmlImg']);
+  gulp.watch(paths.all, ['inject']);
 });
 
 gulp.task('install', ['git-check'], function() {
