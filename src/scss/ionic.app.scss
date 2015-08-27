@@ -21,3 +21,28 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.card-upper-icons {
+  display: inline-block;
+  float: right;
+  padding: 0;
+
+  a {
+    display: inline-block;
+    float:right;
+    margin: 0 20px 0 20px;
+  }
+}
+
+.transformation-username {
+  font-weight: 200;
+  font-size: 1.8em;
+  padding-top: 10px;
+}
