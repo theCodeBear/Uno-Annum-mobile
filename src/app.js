@@ -72,16 +72,6 @@ angular.module('unoAnnum', ['ionic'])
     }
   })
 
-  .state('tab.chat-detail', {
-    url: '/chats/:chatId',
-    views: {
-      'tab-chats': {
-        templateUrl: 'states/feed/chat-detail.html'//,
-        // controller: 'ChatDetailCtrl'
-      }
-    }
-  })
-
   .state('tab.favoritesFeed', {
     url: '/favoritesFeed',
     views: {
@@ -92,20 +82,20 @@ angular.module('unoAnnum', ['ionic'])
     }
   })
 
-  .state('tab.picture', {
+  .state('picture', {
     url: '/picture/:pictureId',
     templateUrl: 'states/picture/picture.html',
     controller: 'PictureCtrl'
   })
 
-  .state('tab.profile', {
+  .state('profile', {
     url: '/profile/:userId',
     templateUrl: 'states/profile/profile.html',
     controller: 'ProfileCtrl'
   })
 
-  .state('tab.transformation', {
-    url: '/transformation/:transformationId',
+  .state('transformation', {
+    url: '/transformation/transformationId',
     templateUrl: 'states/transformation/transformation.html',
     controller: 'TransformationCtrl'
   });
