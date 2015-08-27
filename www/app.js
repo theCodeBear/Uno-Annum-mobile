@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 'use strict';
 
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services']).run(function ($ionicPlatform) {
+angular.module('starter', ['ionic']).run(function ($ionicPlatform) {
   $ionicPlatform.ready(function () {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -32,45 +32,45 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services']).
   .state('tab', {
     url: '/tab',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'states/tabs/tabs.html'
   })
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.followingFeed', {
+    url: '/followingFeed',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-following': {
+        templateUrl: 'states/tabs/tab-following.html' //,
+        // controller: 'TabFollowingCtrl'
       }
     }
-  }).state('tab.chats', {
-    url: '/chats',
+  }).state('tab.popularFeed', {
+    url: '/popularFeed',
     views: {
-      'tab-chats': {
-        templateUrl: 'templates/tab-chats.html',
-        controller: 'ChatsCtrl'
+      'tab-popular': {
+        templateUrl: 'states/tabs/tab-popular.html' //,
+        // controller: 'PopularFeedCtrl'
       }
     }
   }).state('tab.chat-detail', {
     url: '/chats/:chatId',
     views: {
       'tab-chats': {
-        templateUrl: 'templates/chat-detail.html',
-        controller: 'ChatDetailCtrl'
+        templateUrl: 'states/tabs/chat-detail.html' //,
+        // controller: 'ChatDetailCtrl'
       }
     }
-  }).state('tab.account', {
-    url: '/account',
+  }).state('tab.favoritesFeed', {
+    url: '/favoritesFeed',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-favorites': {
+        templateUrl: 'states/tabs/tab-favorites.html' //,
+        // controller: 'FavoritesFeedCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('tab/popularFeed');
 });
