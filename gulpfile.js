@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     babel = require('gulp-babel'),
     jshint = require('gulp-jshint'),
     copy = require('gulp-copy'),
-    del = require('del');
+    del = require('del'),
+    inject = require('gulp-inject');
 
 var paths = {
   sass: ['./src/scss/**/*.scss'],
@@ -17,7 +18,7 @@ var paths = {
   html: ['./src/**/**.html']
 };
 
-gulp.task('default', ['sass', 'jshint', 'copyHtmlImg']);
+gulp.task('default', ['inject']);
 
 gulp.task('sass', ['clean-css'], function(done) {
   gulp.src(paths.sass)
@@ -26,11 +27,11 @@ gulp.task('sass', ['clean-css'], function(done) {
       outputStyle: 'expanded'
     }))
     .pipe(gulp.dest('./www/css/'))
-    .pipe(minifyCss({
-      keepSpecialComments: 0
-    }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest('./www/css/'))
+    // .pipe(minifyCss({
+      // keepSpecialComments: 0
+    // }))
+    // .pipe(rename({ extname: '.min.css' }))
+    // .pipe(gulp.dest('./www/css/'))
     .on('end', done);
 });
 
@@ -63,7 +64,16 @@ gulp.task('clean-css', function(cb) {
   del(['./www/css/**/*.css', '!./www/css'], cb);
 });
 
-gulp.task('watch', ['sass', 'jshint', 'copyHtmlImg'], function() {
+gulp.task('inject', ['sass', 'jshint', 'copyHtmlImg'], function() {
+  return gulp.src('./www/index.html')
+    .pipe(inject(
+      gulp.src(['./www/**/*.js', '!./www/lib/**/*.js', './www/css/**/*.css'], {read: false}),
+      {relative: true}
+    ))
+    .pipe(gulp.dest('./www'));
+});
+
+gulp.task('watch', ['inject'], function() {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch(paths.js, ['jshint']);
   gulp.watch(paths.html, ['copyHtmlImg']);
