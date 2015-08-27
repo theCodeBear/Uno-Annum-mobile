@@ -29,6 +29,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   padding: 0 !important;
 }
 
+.gray-back {
+  background-color: #444;
+}
+
+.float-right {
+  float: right;
+}
+
 .card-upper-icons {
   display: inline-block;
   float: right;
@@ -41,8 +49,22 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   }
 }
 
-.transformation-username {
+.transformation-card-username {
   font-weight: 200;
-  font-size: 1.8em;
+  font-size: 1.2em;
   padding-top: 10px;
+}
+
+.transformation-card-title {
+  font-size: 1.4em;
+  margin-top: 5px !important;
+  padding: 0 20px 6px 20px !important;
+  margin-left: -72px;
+  width: inherit;
+
+  span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: inherit;
+  }
 }

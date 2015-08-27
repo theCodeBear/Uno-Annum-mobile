@@ -6,7 +6,13 @@ angular.module('unoAnnum')
 
   return {
     restrict: 'E',
-    templateUrl: 'directives/partials/transformationCard.html'
+    templateUrl: 'directives/partials/transformationCard.html',
+    scope: {
+      transform: '=transformdata'
+    },
+    controller : ($scope) => {
+
+    }
   };
 
 });

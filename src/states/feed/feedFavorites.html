@@ -1,7 +1,7 @@
 <ion-view view-title="Account">
-  <ion-content>
+  <ion-content class='gray-back'>
     <ion-list>
-      <transformation-card></transformation-card>
+      <transformation-card transformdata='transform' ng-repeat='transform in transforms'></transformation-card>
     </ion-list>
   </ion-content>
 </ion-view>

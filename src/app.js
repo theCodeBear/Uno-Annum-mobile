@@ -56,8 +56,8 @@ angular.module('unoAnnum', ['ionic'])
     url: '/followingFeed',
     views: {
       'tab-following': {
-        templateUrl: 'states/feed/feedFollowing.html'//,
-        // controller: 'FollowingFeedCtrl'
+        templateUrl: 'states/feed/feedFollowing.html',
+        controller: 'FeedFollowingCtrl'
       }
     }
   })
@@ -66,8 +66,8 @@ angular.module('unoAnnum', ['ionic'])
     url: '/popularFeed',
     views: {
       'tab-popular': {
-        templateUrl: 'states/feed/feedPopular.html'//,
-        // controller: 'PopularFeedCtrl'
+        templateUrl: 'states/feed/feedPopular.html',
+        controller: 'FeedPopularCtrl'
       }
     }
   })
@@ -76,8 +76,8 @@ angular.module('unoAnnum', ['ionic'])
     url: '/favoritesFeed',
     views: {
       'tab-favorites': {
-        templateUrl: 'states/feed/feedFavorites.html'//,
-        // controller: 'FavoritesFeedCtrl'
+        templateUrl: 'states/feed/feedFavorites.html',
+        controller: 'FeedFavoritesCtrl'
       }
     }
   })
@@ -95,7 +95,7 @@ angular.module('unoAnnum', ['ionic'])
   })
 
   .state('transformation', {
-    url: '/transformation/transformationId',
+    url: '/transformation/:transformationId',
     templateUrl: 'states/transformation/transformation.html',
     controller: 'TransformationCtrl'
   });

@@ -1,9 +1,11 @@
 <div class="list card">
 
-  <div class="item item-avatar" style='padding-bottom: 5px;'>
-    <img src="" alt='Profile Photo'>
+  <div class="item item-avatar" style='padding-bottom: 5px; padding-top: 5px'>
+    <img ng-src='{{transform.photo}}' alt='Profile Photo'>
     <div class='row no-padding'>
-      <span class='col col-50 no-margin transformation-username'>Username</span>
+      <span class='col col-50 no-margin transformation-card-username'>
+        {{ transform.username }}
+      </span>
       <!-- <p>November 05, 1955</p> -->
       <div class="card-upper-icons col col-50">
         <a class="tab-item">
@@ -16,29 +18,31 @@
         </a>
       </div>
     </div>
+    <div class='row transformation-card-title no-padding'>
+      <span>{{ transform.title }}</span>
+    </div>
   </div>
 
   <div class="item item-body">
-    <img class="full-image" src="" alt='Transformation Image'>
+    <img class="full-image" ng-src='{{transform.transformImage}}' alt='Transformation Image'>
+    <p> {{ transform.imageNote }} </p>
     <p>
-      Note
-    </p>
-    <p>
-      <a class="subdued">1 Favorites</a>
+      <a class="subdued">{{ transform.favorites }} Favorites</a>
       <!-- <a href="#" class="subdued">5 Comments</a> -->
+      <span class='float-right'>Day {{ transform.dayIn }}</span>
     </p>
   </div>
 
   <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" ui-sref='transformation({transformationId: 001})'>
+    <a class="tab-item" ui-sref='transformation({transformationId: {{transform.transformationId}} })'>
       <i class="icon fa fa-film"></i>
       Transformation
     </a>
-    <a class="tab-item" ui-sref='picture({pictureId: 002})'>
+    <a class="tab-item" ui-sref='picture({pictureId: {{transform.pictureId}} })'>
       <i class="icon ion-camera"></i>
       Picture
     </a>
-    <a class="tab-item" ui-sref='profile({userId: 002})'>
+    <a class="tab-item" ui-sref='profile({userId: {{transform.userId}} })'>
       <i class="icon ion-person"></i>
       Profile
     </a>
