@@ -1,6 +1,6 @@
-'use strict';
+angular.module('starter.services', [])
 
-angular.module('starter.services', []).factory('Chats', function () {
+.factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -32,13 +32,13 @@ angular.module('starter.services', []).factory('Chats', function () {
   }];
 
   return {
-    all: function all() {
+    all: function() {
       return chats;
     },
-    remove: function remove(chat) {
+    remove: function(chat) {
       chats.splice(chats.indexOf(chat), 1);
     },
-    get: function get(chatId) {
+    get: function(chatId) {
       for (var i = 0; i < chats.length; i++) {
         if (chats[i].id === parseInt(chatId)) {
           return chats[i];
